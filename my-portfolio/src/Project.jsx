@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Project = () => {
-	return <div></div>
+	return <div>project</div>
 }
 
 export default Project

@@ -13,6 +13,18 @@ export default function App() {
 	const [project, setproject] = useState(false)
 	const [education, seteducation] = useState(false)
 
+	function setAllFalse() {
+		seteducation(false)
+		setprograming(false)
+		setproject(false)
+		setwork(false)
+	}
+
+	function changeState(function1, state1) {
+		setAllFalse()
+		function1(state1)
+	}
+
 	return (
 		<>
 			<div className="App">
@@ -94,26 +106,28 @@ export default function App() {
 						</div>
 					</div>
 				</div>
-				<div className="resume-outer-section d-flex flex-column">
+
+				{/* resume-section */}
+				{/* <div className="resume-outer-section d-flex flex-column">
 					<span className="aboutme-text">Resume</span>
-					<span className="whyme-text">My Formal Bio</span>
+					<span className="whyme-text">My Formal Bio Details </span>
 					<div
 						className="resume-new-section row"
 						style={{ width: '70%', marginInline: 'auto' }}
 					>
 						<div className="col-lg-4 col-md-4 resume-left-section d-flex flex-row">
 							<div className="d-flex flex-column bg-new text-dark">
-								<span>
-									<i class="bi bi-mortarboard-fill"></i>
+								<span className="icons-span">
+									<i className="bi bi-mortarboard-fill"></i>
 								</span>
-								<span>
-									<i class="bi bi-briefcase-fill"></i>
+								<span className="icons-span">
+									<i className="bi bi-briefcase-fill"></i>
 								</span>
-								<span>
-									<i class="bi bi-code-slash"></i>
+								<span className="icons-span">
+									<i className="bi bi-code-slash"></i>
 								</span>
-								<span>
-									<i class="bi bi-list-task"></i>
+								<span className="icons-span">
+									<i className="bi bi-list-task"></i>
 								</span>
 								<div className="d-flex flex-column">
 									<span className="resume-option-items">work</span>
@@ -123,7 +137,75 @@ export default function App() {
 								</div>
 							</div>
 						</div>
-						<div className="col-lg-8 col-md-8">
+						<div className="col-lg-8 col-md-8 resume-right-section">
+							{education === true && <Education />}
+							{programing === true && <Programing />}
+							{work === true && <Work />}
+							{project === true && <Project />}
+						</div>
+					</div>
+				</div> */}
+				<div className="resume-outer-section d-flex flex-column">
+					<span className="aboutme-text">Resume</span>
+					<span className="whyme-text">My Formal Bio Details</span>
+
+					<div
+						className="resume-new-section row"
+						style={{ width: '70%', marginInline: 'auto' }}
+					>
+						<div className="col-lg-4 col-md-4 resume-left-section d-flex flex-row">
+							<div className="d-flex flex-column bg-new text-dark">
+								{/* ICONS + TEXT FIXED INLINE */}
+								<div className="d-flex align-items-center gap-2">
+									<i className="bi bi-mortarboard-fill"></i>
+									<span
+										className="resume-option-items"
+										onClick={() => {
+											changeState(seteducation, true)
+										}}
+									>
+										Education
+									</span>
+								</div>
+
+								<div className="d-flex align-items-center gap-2">
+									<i className="bi bi-briefcase-fill"></i>
+									<span
+										className="resume-option-items"
+										onClick={() => {
+											setwork(true)
+										}}
+									>
+										Work
+									</span>
+								</div>
+
+								<div className="d-flex align-items-center gap-2">
+									<i className="bi bi-code-slash"></i>
+									<span
+										className="resume-option-items"
+										onClick={() => {
+											setprograming(true)
+										}}
+									>
+										Programming
+									</span>
+								</div>
+
+								<div className="d-flex align-items-center gap-2">
+									<i className="bi bi-list-task"></i>
+									<span
+										className="resume-option-items"
+										onClick={() => {
+											setproject(true)
+										}}
+									>
+										Projects
+									</span>
+								</div>
+							</div>
+						</div>
+						<div className="col-lg-8 col-md-8 resume-right-section px-0 shadow">
 							{education === true && <Education />}
 							{programing === true && <Programing />}
 							{work === true && <Work />}
