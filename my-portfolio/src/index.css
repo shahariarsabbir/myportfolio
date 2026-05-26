@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+* {
+	margin: o;
+	padding: 0;
+}
+:root {
+	--primary-app-color: #180161, --secondary-app-color: #4f1787;
+}
+
+.hero-section {
+	background-color: linear-gradient(
+		-90deg,
+		var(--primary-app-color),
+		var(--secondary-app-color)
+	);
+	clip-path: polygon(50% 0%, 100% 0, 100% 60%, 100% 74%, 54% 100%, 0 74%, 0 0);
+}
+
+.nav-items {
+	cursor: pointer;
+}
